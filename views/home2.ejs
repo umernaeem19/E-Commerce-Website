@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech2etc Ecommerce Tutorial</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add the following styles to your existing CSS */
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            /* White background with some transparency */
+            z-index: 1000;
+            /* Make sure it appears above other elements */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+            /* Ensure it's above the overlay */
+        }
+
+        /* Rest of your existing styles remain unchanged */
+    </style>
+</head>
+
+<body>
+
+    <section id="header">
+        <a href="#"><img src="img/logo.png" class="logo" alt=""></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="home2.html">Home</a></li>
+                <li id="Openbutton"><a href="shop.html">Shop</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
+                <!-- add username extracted from login.js  -->
+                 <% if (username) { %>
+                    <li id="lg-user"><a href="/productpage"><i class="far fa-user"></i></a></li>
+
+                    <% } else { %>
+                    <li id="lg-user"><a href="#" onclick="toggleLoginForm()"><i class="far fa-user"></i></a></li>
+                    
+                <% } %>
+                
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+    <section id="hero">
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="login-form-container">
+                <div class="close-btn" onclick="toggleLoginForm()">&times;</div>
+                <div class="login-form">
+                    <h2>Login</h2>
+                    <form action="/t1" method="post" enctype="application/x-www-form-urlencoded">
+                        <!-- Add your login form fields here -->
+                        <div class="input_box">
+                            <input type="email" name="email" placeholder="Enter your email" required />
+                            <i class="uil uil-envelope-alt email"></i>
+                        </div>
+                        <div class="input_box">
+                            <input type="password" name="password" placeholder="Enter your password" required />
+                            <i class="uil uil-lock password"></i>
+                            <i class="uil uil-eye-slash pw_hide"></i>
+                        </div>
+
+                        <div class="option_field">
+                            <span class="checkbox">
+                                <input type="checkbox" id="check" />
+                                <label for="check">Remember me</label>
+                            </span>
+                        </div>
+
+                        <button class="button">Login Now</button>
+
+                        <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
+                    </form>
+                    <!-- <form action="/t1" method="post" enctype="application/x-www-form-urlencoded">
+                        <div id="greeting-container" style="display: none;">
+                            Hi <span id="username-display"></span>!
+                        </div>
+                    </form> -->
+                </div>
+            </div>
+        </div>  
+        <h4>Trade-in-offer</h4>
+        <h2>Super value deals</h2>
+        <h1>On all products</h1>
+        <p>Save more with coupons & up to 70% off! </p>
+        <button>Shop Now</button>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2>Featured Products</h2>
+        <p>Summer Collection New Morden Design</p>
+        <div class="pro-container">
+                    <div class="pro" onclick="window.location.href='productm1';">
+                        <img src="img/products/f1.jpg" alt="">
+                        <div class="des">
+                            <span>IBU</span>
+                            <h5>Hawaiian T-Shirt</h5>
+                            <div class="star">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4>$78</h4>
+                        </div>
+                        <a href="#" class="add-to-cart" data-product-id="1" data-product-name="Cartoon Astronaut T-Shirts" data-product-price="78">
+                            <i class="fal fa-shopping-cart cart"></i> 
+                    </div>
+        
+                   
+                    <div class="pro" onclick="window.location.href='productf1';">
+                            <img src="img/products/w5.jpg" alt="">
+                            <div class="des">
+                                <span>IBU</span>
+                                <h5>Floral Blouse</h5>
+                                <div class="star">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>$75</h4>
+                            </div>
+                            <a href="#" class="add-to-cart" data-product-id="1" data-product-name="Cartoon Astronaut T-Shirts" data-product-price="78">
+                                <i class="fal fa-shopping-cart cart"></i> 
+                            </a>
+                        </div>
+
+                        <div class="pro" onclick="window.location.href='productm5';">
+                            <img src="img/products/f7.jpg" alt="">
+                            <div class="des">
+                                <span>IBU</span>
+                                <h5>Floral Trousers</h5>
+                                <div class="star">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>$20</h4>
+                            </div>
+                            <a href="#" class="add-to-cart" data-product-id="1" data-product-name="Cartoon Astronaut T-Shirts" data-product-price="78">
+                                <i class="fal fa-shopping-cart cart"></i> 
+                            </a>
+                        </div>
+    
+
+    
+                        <div class="pro" onclick="window.location.href='productf5';">
+                            <img src="img/products/w1.jpg" alt="">
+                            <div class="des">
+                                <span>IBU</span>
+                                <h5>Cargo Trousers</h5>
+                                <div class="star">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>$90</h4>
+                            </div>
+                            <a href="#" class="add-to-cart" data-product-id="1" data-product-name="Cargo Trousers" data-product-price="78">
+                                <i class="fal fa-shopping-cart cart"></i> 
+                            </a>
+                        </div>
+        </div>
+    </section>
+
+    <form action="/signup" method="post">
+        <section id="newsletter" class="section-p1 section-m1">
+            <div class="newstext">
+                <h4>Sign Up For Newsletters</h4>
+                <p>Get E-mail updates about our latest shop and <span>special offers.</span> </p>
+            </div>
+            <div class="form">
+                <input type="text" name="email" placeholder="Your email address">
+                <button type="submit" class="normal">Subscribe</button>
+            </div>
+        </section>
+      </form>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address: </strong> Fast Nuces</p>
+            <p><strong>Phone:</strong> 03335044339</p>
+            <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col install">
+            <p>Secured Payment Gateways </p>
+            <img src="img/pay/pay.png" alt="">
+        </div>
+    </footer>
+
+    <script>
+        function toggleLoginForm() {
+            var modalOverlay = document.getElementById("modalOverlay");
+            modalOverlay.style.display = (modalOverlay.style.display === "flex") ? "none" : "flex";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var signupLink = document.getElementById("signup");
+
+            if (signupLink) {
+                signupLink.addEventListener('click', function () {
+                    window.location.href = 'login.html';
+                });
+            }
+        });
+
+        function toggleDropdown() {
+            var dropdownContent = document.getElementById("myDropdown");
+            dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropdown-btn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script src="script.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

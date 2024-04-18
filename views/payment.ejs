@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add your head content here -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Payment</title>
+    <!-- Add any additional styles or meta tags here -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Generate Payment</h3>
+    <form action="payment" method="POST">
+        <script
+            src="//checkout.stripe.com/checkout.js"
+            class="stripe-button" 
+            data-key="<%= key %>" 
+            data-amount="800"
+            data-currency="usd"
+            data-name="<%= username %>" 
+            data-description="Ecommerce"
+            data-locale="auto">
+        </script>
+    </form>
+
+    <script src="index.js"></script>
+</body>
+</html>
